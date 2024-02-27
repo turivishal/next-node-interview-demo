@@ -1,4 +1,20 @@
 # Task Management System
+- [Definition](#definition)
+- [Technology Stack](#technology-stack)
+- [Database Modeling](#database-modeling)
+  - [User Schema](#user-schema)
+    - [Index Strategy](#index-strategy)
+  - [Task Schema](#task-schema)
+    - [Index Strategy](#index-strategy-1)
+- [Project's File Structure](#projects-file-structure)
+- [How to Run?](#how-to-run)
+  - [1. (optional) Configuration / Environment Setup](#1-optional-configuration--environment-setup)
+  - [2. (required) Install Dependencies](#2-required-install-dependencies)
+  - [3. (required) Run the project](#3-required-run-the-project)
+  - [4. Swagger: Open in the browser](#4-swagger-open-in-the-browser)
+  - [5. Task Board UI real-time socket updates](#5-task-board-ui-real-time-socket-updates)
+- [Missing](#missing)
+- [Final Thoughts](#final-thoughts)
 
 ## Definition
 
