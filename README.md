@@ -241,3 +241,10 @@ npm install
 - Now whenever the tasks API executes it pushes the actions on Actions sections in real-time:
 
   ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/e087dfa3-1f98-4817-98e1-74e57bd72b27)
+
+## Missing
+- **rate-limiting mechanism**: Well I tried my best to cover everything, but I missed the "rate-limiting mechanism" because of a lack of time, it is easy to implement through `express-rate-limit` middleware and we can configure our settings.
+- **Task Board UI Design**: The UI is not good because of a lack of time, i tried to cover the functionality.
+
+# Final Thoughts
+I hope I have understood the definition properly, as I tried my best to complete everything. Please let me know if you need any explanation or if anything looks hard to understand.
