@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+  
+html {
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+}
+  
+html, input {
+  font-family:
+    "HelveticaNeue-Light",
+    "Helvetica Neue Light",
+    "Helvetica Neue",
+    Helvetica,
+    Arial,
+    "Lucida Grande",
+    sans-serif;
+}
+  
+html, body {
+  margin: 0;
+  padding: 0;
+}
+  
+ul {
+  /* list-style: none; */
+  word-wrap: break-word;
+}
+
+.small {
+  font-size: 10px;
+  color: gray;
+  text-align: center;
+}
+
+.header-title {
+  text-align: center; 
+  margin-bottom:2px;
+  font-size: 18px;
+}
+
+.h5-title {
+  color: #b9b4b4;
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+}
+
+.container {
+  margin: 10px;
+  padding: 10px;
+  text-align: -webkit-center;
+  clear: both;
+}
+
+.boardActions {
+  padding: 8px;
+  background-color: lightgray;
+  border-radius: 0.5;
+  margin-top: 5px; 
+}
+
+.ww {
+  word-wrap: break-word;
+}

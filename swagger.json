@@ -1,0 +1,155 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Swagger TMS API",
+        "description": "This is a sample TMS Services.  You can find out more about     Swagger at [http://swagger.io](http://swagger.io) or on [irc.freenode.net, #swagger](http://swagger.io/irc/).      For this sample, you can use the api key `special-key` to test the authorization     filters.",
+        "version": "1.0.0",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Swagger Contact",
+            "email": "apiteam@swagger.io",
+            "url": "http://swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        }
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:{port}/{basePath}/",
+            "description": "Local Machine",
+            "variables": {
+                "port": {
+                    "enum": [
+                        "3015"
+                    ],
+                    "default": "3015",
+                    "description": "Port Number"
+                },
+                "basePath": {
+                    "enum": [
+                        "api"
+                    ],
+                    "default": "api",
+                    "description": "Base Path & Version"
+                }
+            }
+        },
+        {
+            "url": "https://<staging domain>/{basePath}",
+            "description": "Staging",
+            "variables": {
+                "basePath": {
+                    "enum": [
+                        "api"
+                    ],
+                    "default": "api",
+                    "description": "Base Path & Version"
+                }
+            }
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "Authorization": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "value": "Bearer 12345678"
+            }
+        },
+        "schemas": {
+            "200": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Success!"
+                    },
+                    "dataCount": {
+                        "type": "integer",
+                        "example": 0
+                    },
+                    "data": {
+                        "type": "array",
+                        "example": []
+                    }
+                }
+            },
+            "400": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Bad Request!"
+                    }
+                }
+            },
+            "401": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Access denied. No token provided."
+                    }
+                }
+            },
+            "404": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "example": "Requested service is not found!"
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+                "description": "OK",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/200"
+                        }
+                    }
+                }
+            },
+            "400": {
+                "description": "Bad Request",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/400"
+                        }
+                    }
+                }
+            },
+            "401": {
+                "description": "Authorization",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/401"
+                        }
+                    }
+                }
+            },
+            "404": {
+                "description": "Not Found",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "$ref": "#/components/schemas/404"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

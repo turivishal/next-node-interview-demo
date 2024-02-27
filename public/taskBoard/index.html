@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- # -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- # -->
+    <meta property="og:title" content="TMS Board" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="" />
+    <!-- <meta property="og:image" content="f/android-icon-144x144.png" /> -->
+    <meta property="og:site_name" content="TMS Board" />
+    <meta property="og:description" content="TMS Board" />
+    <!-- # -->
+    <meta itemprop="name" content="TMS Board">
+    <meta itemprop="description" content="TMS Board">
+    <meta name="description" content="TMS Board">
+    <meta name="keywords" content="TMS Board">
+    <!-- # -->
+    <title>TMS Board</title>
+    <!-- # Icons -->
+    <meta name="theme-color" content="#ffffff">
+    <!-- # -->
+    <link rel="stylesheet" href="style.css">
+    <!-- # -->
+    <noscript></noscript>
+</head>
+<body>
+    <h1 class="header-title">Task Management System!</h1>
+    <div class="small">Task Board!</div>
+    <!-- # -->
+    <div class="container">
+        <div class="ww">
+            <p>
+                <b>Host:</b> 
+                <span id="host"></span>
+            </p>
+            <p>
+                <b>Auth Token:</b> 
+                <span id="authToken"></span>
+            </p>
+            <p>
+                <b>Connection:</b> 
+                <span id="cStatus">Connecting...</span>
+            </p>
+        </div>
+        <hr>
+        <h3>Actions:</h3>
+        <div id="taskActions" class="ww"></div>
+    </div>
+    <!-- # SUPPORT FOR IE-->
+    <script defer src="polyfill.min.js"></script>
+    <!-- # SOCKET IO -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.0/socket.io.js"></script>
+    <!-- # -->
+    <script src="script.js"></script>
+</body>
+</html>
