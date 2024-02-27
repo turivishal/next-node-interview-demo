@@ -260,6 +260,9 @@ npm install
 ## Missing
 - **rate-limiting mechanism**: Well I tried my best to cover everything, but I missed the "rate-limiting mechanism" because of a lack of time, it is easy to implement through `express-rate-limit` middleware and we can configure our settings.
 - **Task Board UI Design**: The UI is not good because of a lack of time, i tried to cover the functionality.
+- **Express JS**: I have developed this in JavaScript, This is hard to manage in the team, We should use TypeScript when we have a big scale project with multiple developers.
+- **Validation**: I have implemented validations as per my thinking but this should be improved as we go deep into the exact requirement.
+- **File Structure**: Managed decent file structure, We can improve more with the usability.
 
 # Final Thoughts
 I hope I have understood the definition properly, as I tried my best to complete everything. Please let me know if you need any explanation or if anything looks hard to understand.
