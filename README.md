@@ -54,6 +54,10 @@ Currently, we have to design 2 entities (User and Task).
     "updatedAt": { "$date": "<updated date and time in ISO format>" }
   }
   ```
+  #### Index Strategy
+  We can put the MongoDB index on the below fields as per the usage:
+  - Unique index on `userName` property.
+
   ### Task Schema
   As described in the Definition section, Task requires these details (Title, Description, Stage - (Pending, Active, Completed, Hold), Assigned to a Member/User).
   ```
@@ -83,6 +87,9 @@ Currently, we have to design 2 entities (User and Task).
     "updatedAt": { "$date": "<updated date and time in ISO format>" }
   }
   ```
+  #### Index Strategy
+  We can put the MongoDB index on the below fields as per the usage:
+  - A compound index in the sequence of the ESR rule (status 1, createdBy._id 1, assignedTo._id, createdAt -1).
 
 ## Project's File Structure
 ```bash
@@ -157,10 +164,80 @@ docs                         # Docs for references
 
 ## How to Run?
 We have used express.js with javascript, so it will be easy to execute and run quickly with no time in just a few steps.
-1. Configuration / Environment Setup
+For quick settings, you can just focus on (required) marked things only, and ignore (optional) ones.
+### 1. (optional) Configuration / Environment Setup
+  - We will run `dev` environment, and make sure the `.env` file has:
+    ```bash
+    NODE_ENV=dev
+    PROFILE=dev
+    ```
+  - So the above environment will load `config/dev.yaml` file settings.
+  - Change the required settings if you want to otherwise no need to change:
+    - `server.port: 3015`: you can change the port if you want.
+    - `mongodb.uris`: There is already my MongoDB connection URL, you can change it as you want with the database name `TMS`.
+    - `log`: Logging settings for info, error or exceptions.
+    - `routes`: Routes settings with payload and request size, and cors settings, you can add your domains.
+    - `gateway_auth`: Can change the secret that will generate the JWT, expiration time (24 hours).
+    - `swagger`: Swagger authentication details
+    - `socket`: Socket path, you can change as you want by default is `/tms`
+### 2. (required) Install Dependencies
+Install dependencies using the below command in your terminal:
+```bash
+npm install
+```
+### 3. (required) Run the project
+- Run the project by executing the below command in your terminal:
+  ```bash
+  node app.js
+  ```
+- The successful run command will show the below information logs in the terminal:
+  ```bash
+  $ node app.js
+  info: We are working on DEV environment and Listening on port 3015... {"timestamp":"2024-02-27 10:02:11:960"}
+  info: MDB connection succeeded! {"timestamp":"2024-02-27 10:02:12:128"}
+  ```
+### 4. Swagger: Open in the browser
+- Now we have integrated swagger as well to manage our API with authentication, 
+  ```
+  http://localhost:3015/api-docs/<swagger username>/<swagger password>/
+  ```
+- We have default swagger's user name and password, You need to open the below URL in the browser: <br>
+  [http://localhost:3015/api-docs/DemoUser/DemoPass/](http://localhost:3015/api-docs/DemoUser/DemoPass/)
+- It will open the swagger as per the below screenshot:
 
-2. Install Dependencies
-3. Run the project
-4. Swagger: Open in the browser
-5. Task Board UI real-time socket updates
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/34499e6d-b6ed-4c7a-90d6-7df0635d6b59)
 
+- Auth / User API Section:
+  
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/5e520190-86a4-45ff-9b64-b2f15b3a162b)
+
+- Task API Section
+
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/daf3d94b-02d0-4527-b23f-cd0f2301da5f)
+
+- To use Task API, you need to register and login first, the successful login response will provide an Auth Token.
+- To set the Auth Token you need to copy the Auth Token and paste it into this input:
+
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/b96b89d8-9f48-4eb1-9d8c-194a212453e6)
+
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/f59e933d-1061-4f89-a67f-1804ae6dd52a)
+
+### 5. Task Board UI real-time socket updates
+- I have developed a socket client using HTML, CSS, and javascript using the express ejs HTML engine.
+- Before running you need to set a few things in that `public/taskBoard/script.js` file:
+  ```
+  // INITIALIZE
+  const host = 'http://localhost:3015', // Connection URL, Make sure if you have changed the port then you have to change it here.
+        socketPath = '/tms', // This is the default one, if you have already changed the socket path in the config file then you have to change it here for the connection
+        authToken = 'Bearer <Auth Token>'; // Put the auth token after successful login
+  ```
+- After the above configuration, you need to open the below URL in your browser: <br>
+  [http://localhost:3015/taskBoard/](http://localhost:3015/taskBoard/)
+
+- It will look like this:
+
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/78e74625-7ff6-4f32-9fba-3636241d7ce1)
+
+- Now whenever the tasks API executes it pushes the actions on Actions sections in real-time:
+
+  ![image](https://github.com/turivishal/next-node-interview-demo/assets/10988772/e087dfa3-1f98-4817-98e1-74e57bd72b27)
