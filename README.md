@@ -118,7 +118,6 @@ LICENSE                    # License
 README.md                  # Readme
 config                         # Config files as per the environment, can be created as needed
    |-- dev.yml                 # Development environment
-   |-- local-dev.yml           # Local development environment
    |-- staging.yml             # Staging development environment
 initializer                             # Initializers, this will initialize the default settings runtime
    |-- index.js                         # This will execute all initializers
