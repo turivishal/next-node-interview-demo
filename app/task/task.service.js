@@ -65,7 +65,12 @@ module.exports.update = async (id, data) => {
 
     // UPDATE TASK
     let responseData = await Task.Schema.updateOne(
-        { _id: id, status: 1 }, 
+        { 
+            _id: id, 
+            status: 1,
+            // ALLOWED ONLY IF THE USER IS OWNER/CREATOR OF THIS TASK
+            'createdBy._id': data.user.data.id 
+        }, 
         { $set: data }
     );
     
@@ -204,8 +209,6 @@ module.exports.search = async (data) => {
     // PREPARE PAGINATION
     let { limit, skip } = MongoRepository.customPagination(data);
     
-    console.log(limit, skip)
-
     // SORT BY
     let sort = { createdAt: -1 };
 

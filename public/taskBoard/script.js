@@ -72,7 +72,7 @@
                 console.log(response);
                 document.getElementById('taskActions').innerHTML += `
                     <div class='boardActions'>
-                        <b>Task ASSIGNED:</b> ${JSON.stringify(response)}
+                        <b>Task Assigned:</b> ${JSON.stringify(response)}
                     </div>
                 `;
             });
