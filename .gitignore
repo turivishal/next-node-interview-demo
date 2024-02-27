@@ -108,3 +108,6 @@ dist
 
 ## Ignore Docker File
 # Dockerfile
+
+# dependancy
+package-lock.json
